@@ -1,0 +1,38 @@
+
+1/ Given an array of integer numbers, write a PHP function to calculate the sum of all odd/even numbers in an array.
+
+  function check_integer($arr){
+        foreach($arr as $value){
+            if(floor($value)!= $value){
+                return 0;
+            }
+        }
+        return 1;
+    }
+    function sum_even_odd_number($arr){
+        $even_number = 0;
+        $odd_number = 0;
+        $check_interger = check_integer($arr);
+        if($check_interger == 1){
+            foreach ($arr as $value){
+                if ($value % 2 == 0){
+                    $even_number += $value;
+                }
+                else {
+                    $odd_number += $value;
+                }
+            }
+            return "sum_enven_number : ".$even_number ." and sum_odd_number : ".$odd_number;
+        }
+        return "arr is not interger number";
+    }
+    echo sum_even_odd_number([1,2,3,4,5]);
+    
+
+ 2/ Write a SQL query that gets the list of students who attend the Math course (based on the given data), sorted by alphabetical order of student names.  (the result table has two columns:  `student_id`, `student_name`).
+
+SELECT course_register.studen_id, student.name
+FROM student INNER JOIN course_register ON student.id = course_register.studen_id
+WHERE course_name LIKE %Math%
+ORDER BY student.name ASC
+
